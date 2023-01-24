@@ -1,11 +1,11 @@
-baseProjectName: "${argoAppName}"
+baseProjectName: "gitops-kickstarter"
 destination:
   server: https://kubernetes.default.svc
 source:
   # When forked updated to your fork
-  repoURL: ${gitOpsRepoURL}
+  repoURL: https://github.com/kameshsampath/gitops-quickstart
   # the branch to use
-  targetRevision: ${gitopsRepoRevision}
+  targetRevision: dev
 sigstore:
   policyController: 
     version: 0.3.9
@@ -14,5 +14,6 @@ argocd:
     version: 0.8.2
     logLevel: debug
 helloWorld:
+  deploy: true
   image:
-    repo: ${helloWorldImageRepo}
+    repo: docker.io/kameshsampath/go-hello-world
