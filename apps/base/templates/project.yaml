@@ -14,6 +14,7 @@ spec:
   - {{ .Values.source.repoURL }}
   - https://argoproj.github.io/argo-helm
   - https://sigstore.github.io/helm-charts
+  - https://charts.jetstack.io
 
   # Only permit applications to deploy only to the following namespaces in the same cluster
   destinations:
@@ -26,6 +27,8 @@ spec:
   - namespace: argocd
     server: {{ .Values.destination.server }}
   - namespace: cosign-system
+    server: {{ .Values.destination.server }}
+  - namespace: cert-manager
     server: {{ .Values.destination.server }}
 
   # Deny all cluster-scoped resources from being created, except for Namespace,MutatingWebhookConfiguration,ValidatingWebhookConfiguration,ClusterRoleBinding,ClusterRole,CustomResourceDefinition
