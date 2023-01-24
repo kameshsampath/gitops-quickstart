@@ -16,4 +16,4 @@ argocd:
 helloWorld:
   deploy: true
   image:
-    repo: docker.io/kameshsampath/go-hello-world
+    repo: docker.io/kameshsampath/go-hello-world:latest
